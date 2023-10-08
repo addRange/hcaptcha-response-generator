@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  web:
+    image: nginx
+    volumes:
+      - ./hcaptcha.js:/usr/share/nginx/html/hcaptcha.js
+      - ./matomo.js:/usr/share/nginx/html/matomo.js
+      - ./index.html:/usr/share/nginx/html/index.html
+    ports:
+      - "80:80"
+    environment:
+      - NGINX_HOST=discord.com
+      - NGINX_PORT=80
