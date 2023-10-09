@@ -6,8 +6,9 @@ services:
       - ./hcaptcha.js:/usr/share/nginx/html/hcaptcha.js
       - ./matomo.js:/usr/share/nginx/html/matomo.js
       - ./index.html:/usr/share/nginx/html/index.html
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+      - ./certs/nginx-selfsigned.crt:/etc/ssl/certs/nginx-selfsigned.crt
+      - ./certs/nginx-selfsigned.key:/etc/ssl/private/nginx-selfsigned.key
     ports:
       - "80:80"
-    environment:
-      - NGINX_HOST=discord.com
-      - NGINX_PORT=80
+      - "443:443"
